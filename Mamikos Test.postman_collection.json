@@ -1,0 +1,596 @@
+{
+	"info": {
+		"_postman_id": "754bb6b3-ca22-456c-9505-a7ce2e950895",
+		"name": "Mamikos Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3723185"
+	},
+	"item": [
+		{
+			"name": "Auth & Register",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "teuingatuh",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "teuingatuh",
+									"type": "text"
+								},
+								{
+									"key": "user_type",
+									"value": "Regular",
+									"description": "Default: Regular (Regular, Owner, Premium)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manage Property",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/property?search=murniku&price=1000-3000&sortBy=price&sortOrder=desc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"property"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "murniku"
+								},
+								{
+									"key": "price",
+									"value": "1000-3000"
+								},
+								{
+									"key": "sortBy",
+									"value": "price"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/property/8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"property",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kosan Bu Surti 4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "lorem",
+									"type": "text"
+								},
+								{
+									"key": "kost_type",
+									"value": "0",
+									"description": "0: mix, 1: boy, 2:girl",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "-6.921278612188005",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "107.67149907728928",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Jl Arcamanik",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "50000",
+									"type": "text"
+								},
+								{
+									"key": "total_rooms",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "total_available_rooms",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/property",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Kosan Bu Murniku 3",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "lorem",
+									"type": "text"
+								},
+								{
+									"key": "kost_type",
+									"value": "0",
+									"description": "0: mix, 1: boy, 2:girl",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "-6.921278612188005",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "107.67149907728928",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Jl Arcamanik",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "3000",
+									"type": "text"
+								},
+								{
+									"key": "total_rooms",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "total_available_rooms",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/property/11",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"property",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/property/9",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"property",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discussion",
+			"item": [
+				{
+					"name": "Check Availability Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "room_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/check/availability",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"check",
+								"availability"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "room_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/discussion/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"discussion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Message",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"room_discussion_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/discussion/message",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"discussion",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Explore Room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/room/explore?search=&price=1000-100000&sortBy=price&sortOrder=asc",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"room",
+						"explore"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": ""
+						},
+						{
+							"key": "price",
+							"value": "1000-100000"
+						},
+						{
+							"key": "sortBy",
+							"value": "price"
+						},
+						{
+							"key": "sortOrder",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/room/12",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"room",
+						"12"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NzNhYmNkYy1mNTM5LTQ5MDYtODNiNy1mZTIwMWEwNWNmMzMiLCJqdGkiOiJjMWFlY2JiZTFkYTY4NmY0NmJjYTg1ZTY0YTVjZDkyYmMyMjUwMmNhOTg1ZjQ3N2VjYjFmZGYyZjllODNlZTU4NGE0YWQyYjIzMGM0ZWYzYyIsImlhdCI6MTY2Mjc5MjU1My40MzI4NjIsIm5iZiI6MTY2Mjc5MjU1My40MzI4NjYsImV4cCI6MTY5NDMyODU1My40MDgyMTIsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.mrl_zQfoTplWLdxP_RXUOFDjFhloDp32qmY96Uaj1t7lQnoELXhTG5pbGSHxgQXsAGUjmAkdVA4ZMcgEeHi44SqC5jNyNiTGdLOkJdxfe5mn6LzI1G5GJVRmYjSKfZdPABpsZBFe2GeZGid7unYw3lWfODpfYFyt53iKFDRq2uywuLvQgb9oBBT0TQ4Xbd4IlNoL7tkJKnWQzgAn3FikPEVthy7hXcFCJtOHY9P3xH2Pjej1ZpbaEmzP7EiyXDv_d1qdnR0nt2NVz6Uv_em2OEZb9EF4ZLMBmhsGIGhVbhk4sq6eTl7ottN-KnFJL--DZ8xWntLzWrU4OhpGAaVfnsGeb0BBPvBI63NxzezN_Hx7_O6hb-fU8aUpGpLzWJdq8OwEHRP5MV73IyuvjkncX5zzpl87jSjchLuzsmeYGHisluUtTSuEJW9WErScrqT66Lv-Sats8_i4CijHyw_cUhIpyaMZ-_FNtlurxaRwLJ_IkGKyFFoCRMNuaFHiC8yKK2f66n8q4mcX_6NJrPODboUqfLceDg0nDyVoywpt72izH951oBqfV_ZhOOHDg-GiWKKOrvItpMzoITsoRlIv6YjzfIQu3C3GlShadulFAqtRCmOC58cfL2glalFLMB-WDXI6fG0AbOq26QZz5s9dV2YfpCe06jPuChmVvOdtZ5E",
+			"type": "string"
+		}
+	]
+}
